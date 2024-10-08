@@ -1,0 +1,45 @@
+{
+    "name": "gabrielkumagai/pasta-composer",
+    "description": "é um teste para utilizar o composer, no caso para buacar os cursos no site da alura",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Gabrielkumagai\\PastaComposer\\": "src/",
+            "Alura\\BuscadorDeCursos\\": "src/"
+
+        }
+    },
+    "authors": [
+        {
+            "name": "gabrielkumagai",
+            "email": "gagabriel937@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.9",
+        "symfony/dom-crawler": "^7.1",
+        "symfony/css-selector": "^7.1"
+        
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.4",
+        "squizlabs/php_codesniffer": "^3.10",
+        "phan/phan": "^5.4"
+    },
+    "scripts": {
+        "test": "phpunit tests\\TestBuscadorDeCursos.php",
+        "cs": "phpcs --standard=PSR12 src/",
+        "phan": "phan --allow-polyfill-parser",
+        "check": [
+            "@phan",
+            "@cs",
+            "@test"
+        ],
+        "post-update-cmd": [
+            "@test"
+        ]
+    },
+    "scripts-descriptions": {
+        "check": "Roda as verificações do código. PHAN, PHPCS e PHPUNIT"
+    }
+}
